@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.rami.incredibletaxiorders.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_mainScreenOrdersFragment"
+            app:destination="@id/mainScreenOrdersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainScreenOrdersFragment"
+        android:name="com.rami.incredibletaxiorders.MainScreenOrdersFragment"
+        android:label="MainScreenOrdersFragment" >
+        <action
+            android:id="@+id/action_mainScreenOrdersFragment_to_ordersDetailsFragment"
+            app:destination="@id/ordersDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ordersDetailsFragment"
+        android:name="com.rami.incredibletaxiorders.OrdersDetailsFragment"
+        android:label="OrdersDetailsFragment" >
+        <argument
+            android:name="order"
+            app:argType="com.rami.incredibletaxiorders.models.OrderItem" />
+    </fragment>
+</navigation>
