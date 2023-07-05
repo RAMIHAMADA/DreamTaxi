@@ -89,4 +89,5 @@ dependencies {
 
     //coil
     implementation 'io.coil-kt:coil:2.3.0'
+
 }

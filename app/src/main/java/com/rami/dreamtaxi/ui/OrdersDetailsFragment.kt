@@ -4,12 +4,22 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
+import coil.ImageLoader
+import coil.load
+import coil.request.CachePolicy
+import coil.request.ImageRequest
+import coil.request.SuccessResult
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.signature.ObjectKey
 import com.rami.dreamtaxi.R
 import com.rami.dreamtaxi.databinding.FragmentDetalisOrderBinding
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 
 class OrdersDetailsFragment : Fragment(R.layout.fragment_detalis_order) {
@@ -45,11 +55,18 @@ class OrdersDetailsFragment : Fragment(R.layout.fragment_detalis_order) {
 
 
     private fun loadPhoto() {
+        val photoUrl = "https://www.roxiemobile.ru/careers/test/images/${args.order.vehicle.photo}"
+
         Glide.with(requireContext())
-            .load("https://www.roxiemobile.ru/careers/test/images/${args.order.vehicle.photo}")
+            .load(photoUrl)
             .placeholder(R.drawable.baseline_directions_car)
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            .signature(ObjectKey(System.currentTimeMillis().toString())) // Изменяем подпись для обновления кеша при каждой загрузке
+            .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL) // Используем оригинальный размер изображения
+            .transition(DrawableTransitionOptions.withCrossFade()) // Анимация перехода
             .into(binding.carIv)
     }
+
 
     @SuppressLint("SimpleDateFormat")
     fun convertLongToTime(time: Long): String {
