@@ -12,7 +12,6 @@ import com.rami.dreamtaxi.R
 import com.rami.dreamtaxi.adapters.OrdersAdapter
 import com.rami.dreamtaxi.databinding.FragmentMainScreenOrdersBinding
 import com.rami.dreamtaxi.view_models.OrdersViewModel
-import com.rami.incredibletaxiorders.MainScreenOrdersFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -52,9 +51,4 @@ class MainScreenOrdersFragment : Fragment(R.layout.fragment_main_screen_orders) 
             }
         }
     }
-
-    companion object {
-        const val TAG = "MainScreenOrdersFragment"
-    }
-
 }

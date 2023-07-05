@@ -25,10 +25,10 @@ class OrdersApiToOrdersDomainMapper @Inject constructor() : (OrderApi) -> Order 
             price = orderApi.priceApi.toPrice(),
             orderTime = convertStringToTimestamp(orderApi.orderTime),
             vehicle = Vehicle(
-                orderApi.vehicleApi.regNumber,
-                orderApi.vehicleApi.modelName,
-                orderApi.vehicleApi.photo,
-                orderApi.vehicleApi.regNumber
+                regNumber = orderApi.vehicleApi.regNumber,
+                modelName = orderApi.vehicleApi.modelName,
+                photo = orderApi.vehicleApi.photo,
+                driverName = orderApi.vehicleApi.driverName
             ),
         )
     }
@@ -48,7 +48,7 @@ class OrdersApiToOrdersDomainMapper @Inject constructor() : (OrderApi) -> Order 
 
 
     private fun convertStringToTimestamp(dateTimeString: String): Long {
-        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.getDefault())
+        val format = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val date = format.parse(dateTimeString)
         return date?.time ?: 0
 

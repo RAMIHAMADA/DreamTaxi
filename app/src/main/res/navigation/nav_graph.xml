@@ -3,18 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
     app:startDestination="@id/splashFragment">
-
-    <fragment
-        android:id="@+id/splashFragment"
-        android:name="com.rami.incredibletaxiorders.SplashFragment"
-        android:label="SplashFragment" >
-        <action
-            android:id="@+id/action_splashFragment_to_mainScreenOrdersFragment"
-            app:destination="@id/mainScreenOrdersFragment" />
-    </fragment>
     <fragment
         android:id="@+id/mainScreenOrdersFragment"
-        android:name="com.rami.incredibletaxiorders.MainScreenOrdersFragment"
+        android:name="com.rami.dreamtaxi.ui.MainScreenOrdersFragment"
         android:label="MainScreenOrdersFragment" >
         <action
             android:id="@+id/action_mainScreenOrdersFragment_to_ordersDetailsFragment"
@@ -22,10 +13,18 @@
     </fragment>
     <fragment
         android:id="@+id/ordersDetailsFragment"
-        android:name="com.rami.incredibletaxiorders.OrdersDetailsFragment"
+        android:name="com.rami.dreamtaxi.ui.OrdersDetailsFragment"
         android:label="OrdersDetailsFragment" >
         <argument
             android:name="order"
-            app:argType="com.rami.incredibletaxiorders.models.OrderItem" />
+            app:argType="com.rami.dreamtaxi.models.OrderItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.rami.dreamtaxi.ui.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_mainScreenOrdersFragment"
+            app:destination="@id/mainScreenOrdersFragment" />
     </fragment>
 </navigation>

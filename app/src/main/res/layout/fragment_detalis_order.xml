@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@id/car_iv" />
 
     <TextView
-        android:id="@+id/start_adress"
+        android:id="@+id/start_adress_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -87,7 +87,7 @@
         tools:text="Начальный адрес: Санкт-Петербург Пр. Ленина, д. 1" />
 
     <TextView
-        android:id="@+id/end_adress"
+        android:id="@+id/end_adress_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -96,7 +96,7 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/start_adress"
+        app:layout_constraintTop_toBottomOf="@id/start_adress_tv"
         tools:text="Конечный адрес: Санкт-Петербург Пр. Невский, д. 126" />
 
     <TextView
@@ -111,7 +111,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/end_adress" />
+        app:layout_constraintTop_toBottomOf="@id/end_adress_tv" />
 
     <TextView
         android:id="@+id/date_tv"
@@ -165,17 +165,28 @@
         tools:text="Лупъев П.З." />
 
     <TextView
-        android:id="@+id/car_tv"
-        android:layout_width="match_parent"
+        android:id="@+id/model_name_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/driver_tv"
+        tools:text="белая LADA amg" />
+
+    <TextView
+        android:id="@+id/reg_number_tv"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="5dp"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/driver_tv"
-        tools:text="белая LADA amg, A 111 AA 198" />
+        tools:text=" A 111 AA 198" />
 
     <TextView
         android:id="@+id/cost_title_tv"
@@ -189,7 +200,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/car_tv" />
+        app:layout_constraintTop_toBottomOf="@id/model_name_tv" />
 
     <TextView
         android:id="@+id/cost_tv"
