@@ -7,9 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
-import coil.load
-import coil.request.CachePolicy
-import coil.request.ImageRequest
+import com.bumptech.glide.Glide
 import com.rami.dreamtaxi.R
 import com.rami.dreamtaxi.databinding.FragmentDetalisOrderBinding
 import java.text.SimpleDateFormat
@@ -42,13 +40,19 @@ class OrdersDetailsFragment : Fragment(R.layout.fragment_detalis_order) {
         binding.dateTv.text = args.order.orderTime
         binding.timeTv.text = convertLongToTime(args.order.orderTimeGeneral)
         binding.costTv.text = args.order.price
-        binding.carIv.apply {
-            if (args.order.vehicle.photo.isEmpty()) setImageResource(R.drawable.baseline_directions_car)
-            else load(args.order.vehicle.photo) { placeholder(R.drawable.baseline_directions_car) }
-        }
+        loadPhoto()
     }
+
+
+    private fun loadPhoto() {
+        Glide.with(requireContext())
+            .load("https://www.roxiemobile.ru/careers/test/images/${args.order.vehicle.photo}")
+            .placeholder(R.drawable.baseline_directions_car)
+            .into(binding.carIv)
+    }
+
     @SuppressLint("SimpleDateFormat")
-    fun convertLongToTime(time:Long): String{
+    fun convertLongToTime(time: Long): String {
         val time = java.sql.Date(time)
         val format = SimpleDateFormat("HH:mm")
         return format.format(time)
